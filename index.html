@@ -6,68 +6,335 @@
     <title>Professional CV Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p1Cm2qE2d2d6v3eR4H+ZQzJp4kW5Q7V0q5Fv+UfZ3sM7OeC6r9ZBf5c1DlQh7V+J0+5sF/9D5UO6QJd/hx7W/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <style>
-        /* Dark mode styles */
-        .dark {
-            color-scheme: dark;
-        }
         
-        .dark body {
-            @apply bg-gray-900 text-gray-100;
-        }
         
-        .dark nav {
-            @apply bg-gray-800 shadow-lg;
-        }
         
-        .dark .bg-white {
-            @apply bg-gray-800;
-        }
         
-        .dark .bg-gray-100 {
-            @apply bg-gray-700;
-        }
+    
         
-        .dark .bg-gray-50 {
-            @apply bg-gray-700;
-        }
         
-        .dark .text-gray-800,
-        .dark .text-gray-700 {
-            @apply text-gray-100;
-        }
         
-        .dark .text-gray-600 {
-            @apply text-gray-300;
-        }
+    
         
-        .dark .border-gray-300 {
-            @apply border-gray-600;
-        }
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
 
-        /* Form styles for dark mode */
-        .dark input,
-        .dark textarea {
-            @apply bg-gray-700 border-gray-600 text-white;
-        }
+        
+        
+        
+        /* dark-mode variables / overrides */
+:root {
+  --bg-light: #ffffff;
+  --text-light: #111827;
+  --bg-dark: #0b1220;
+  --card-dark: #0f1724;
+  --muted-dark: #9ca3af;
+  --focus-dark: rgba(59,130,246,0.15);
+}
 
-        .dark input:focus,
-        .dark textarea:focus {
-            @apply ring-blue-400 border-blue-400;
-        }
+/* Use class 'dark' on <html> (Tailwind class-mode compatible) */
+html.dark {
+  color-scheme: dark;
+}
 
-        .dark label {
-            @apply text-gray-300;
-        }
+html.dark body {
+  background-color: var(--bg-dark);
+  color: #e6eef8;
+}
+
+/* Example component overrides */
+html.dark nav {
+  background-color: #071026;
+  box-shadow: 0 8px 30px rgba(0,0,0,.6);
+}
+
+html.dark .bg-white { background-color: var(--card-dark) !important; }
+html.dark .bg-gray-100 { background-color: #111827 !important; }
+html.dark .text-gray-800, html.dark .text-gray-700 { color: #e6eef8 !important; }
+html.dark .text-gray-600 { color: var(--muted-dark) !important; }
+html.dark .border-gray-300 { border-color: #374151 !important; }
+
+/* Form fields */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus-dark);
+  border-color: #60a5fa;
+}
+
+/* Progress / skill bars */
+html.dark .meter { background: #0b1220; border-color: #374151; }
+html.dark .meter > span { background: linear-gradient(90deg,#4f8cff,#22d3ee); }
+
+/* Hover shadow for cards in dark */
+html.dark .card-hover:hover {
+  box-shadow: 0 14px 40px rgba(2,6,23,0.65);
+}
+
+/* Small transition to smooth theme change */
+html,
+body,
+button,
+input,
+textarea {
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+    /* dark-mode variables / overrides */
+:root {
+  --bg-light: #ffffff;
+  --text-light: #111827;
+  --bg-dark: #0b1220;
+  --card-dark: #0f1724;
+  --muted-dark: #9ca3af;
+  --focus-dark: rgba(59,130,246,0.15);
+}
+
+/* Use class 'dark' on <html> (Tailwind class-mode compatible) */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: var(--bg-dark);
+  color: #e6eef8;
+}
+
+/* Example component overrides */
+html.dark nav {
+  background-color: #071026;
+  box-shadow: 0 8px 30px rgba(0,0,0,.6);
+}
+
+html.dark .bg-white { background-color: var(--card-dark) !important; }
+html.dark .bg-gray-100 { background-color: #111827 !important; }
+html.dark .text-gray-800, html.dark .text-gray-700 { color: #e6eef8 !important; }
+html.dark .text-gray-600 { color: var(--muted-dark) !important; }
+html.dark .border-gray-300 { border-color: #374151 !important; }
+
+/* Form fields */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus-dark);
+  border-color: #60a5fa;
+}
+
+/* Progress / skill bars */
+html.dark .meter { background: #0b1220; border-color: #374151; }
+html.dark .meter > span { background: linear-gradient(90deg,#4f8cff,#22d3ee); }
+
+/* Hover shadow for cards in dark */
+html.dark .card-hover:hover {
+  box-shadow: 0 14px 40px rgba(2,6,23,0.65);
+}
+
+/* Small transition to smooth theme change */
+html,
+body,
+button,
+input,
+textarea {
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+
+    /* dark-mode variables / overrides */
+:root {
+  --bg-light: #ffffff;
+  --text-light: #111827;
+  --bg-dark: #0b1220;
+  --card-dark: #0f1724;
+  --muted-dark: #9ca3af;
+  --focus-dark: rgba(59,130,246,0.15);
+}
+
+/* Use class 'dark' on <html> (Tailwind class-mode compatible) */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: var(--bg-dark);
+  color: #e6eef8;
+}
+
+/* Example component overrides */
+html.dark nav {
+  background-color: #071026;
+  box-shadow: 0 8px 30px rgba(0,0,0,.6);
+}
+
+html.dark .bg-white { background-color: var(--card-dark) !important; }
+html.dark .bg-gray-100 { background-color: #111827 !important; }
+html.dark .text-gray-800, html.dark .text-gray-700 { color: #e6eef8 !important; }
+html.dark .text-gray-600 { color: var(--muted-dark) !important; }
+html.dark .border-gray-300 { border-color: #374151 !important; }
+
+/* Form fields */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus-dark);
+  border-color: #60a5fa;
+}
+
+/* Progress / skill bars */
+html.dark .meter { background: #0b1220; border-color: #374151; }
+html.dark .meter > span { background: linear-gradient(90deg,#4f8cff,#22d3ee); }
+
+/* Hover shadow for cards in dark */
+html.dark .card-hover:hover {
+  box-shadow: 0 14px 40px rgba(2,6,23,0.65);
+}
+
+/* Small transition to smooth theme change */
+html,
+body,
+button,
+input,
+textarea {
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+    /* dark-mode variables / overrides */
+:root {
+  --bg-light: #ffffff;
+  --text-light: #111827;
+  --bg-dark: #0b1220;
+  --card-dark: #0f1724;
+  --muted-dark: #9ca3af;
+  --focus-dark: rgba(59,130,246,0.15);
+}
+
+/* Use class 'dark' on <html> (Tailwind class-mode compatible) */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: var(--bg-dark);
+  color: #e6eef8;
+}
+
+/* Example component overrides */
+html.dark nav {
+  background-color: #071026;
+  box-shadow: 0 8px 30px rgba(0,0,0,.6);
+}
+
+html.dark .bg-white { background-color: var(--card-dark) !important; }
+html.dark .bg-gray-100 { background-color: #111827 !important; }
+html.dark .text-gray-800, html.dark .text-gray-700 { color: #e6eef8 !important; }
+html.dark .text-gray-600 { color: var(--muted-dark) !important; }
+html.dark .border-gray-300 { border-color: #374151 !important; }
+
+/* Form fields */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus-dark);
+  border-color: #60a5fa;
+}
+
+/* Progress / skill bars */
+html.dark .meter { background: #0b1220; border-color: #374151; }
+html.dark .meter > span { background: linear-gradient(90deg,#4f8cff,#22d3ee); }
+
+/* Hover shadow for cards in dark */
+html.dark .card-hover:hover {
+  box-shadow: 0 14px 40px rgba(2,6,23,0.65);
+}
+
+/* Small transition to smooth theme change */
+html,
+body,
+button,
+input,
+textarea {
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
         
-        .dark .progress-bar {
-            @apply bg-gray-600;
-        }
         
-        .dark .card-hover:hover {
-            @apply shadow-lg shadow-gray-800;
-        }
+
         
+        
+        
+    
+        
+        
+        
+    
+        
+        
+        
+    
         /* Custom animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
@@ -164,13 +431,114 @@
             background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
             clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
         }
+
+
+
+
+
+
+
+
+
+/* dark-mode variables / overrides */
+:root {
+  --bg-light: #ffffff;
+  --text-light: #111827;
+  --bg-dark: #0b1220;
+  --card-dark: #0f1724;
+  --muted-dark: #9ca3af;
+  --focus-dark: rgba(59,130,246,0.15);
+}
+
+/* Use class 'dark' on <html> (Tailwind class-mode compatible) */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: var(--bg-dark);
+  color: #e6eef8;
+}
+
+/* Example component overrides */
+html.dark nav {
+  background-color: #071026;
+  box-shadow: 0 8px 30px rgba(0,0,0,.6);
+}
+
+html.dark .bg-white { background-color: var(--card-dark) !important; }
+html.dark .bg-gray-100 { background-color: #111827 !important; }
+html.dark .text-gray-800, html.dark .text-gray-700 { color: #e6eef8 !important; }
+html.dark .text-gray-600 { color: var(--muted-dark) !important; }
+html.dark .border-gray-300 { border-color: #374151 !important; }
+
+/* Form fields */
+html.dark input,
+html.dark textarea,
+html.dark select {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #e5e7eb;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+html.dark select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px var(--focus-dark);
+  border-color: #60a5fa;
+}
+
+/* Progress / skill bars */
+html.dark .meter { background: #0b1220; border-color: #374151; }
+html.dark .meter > span { background: linear-gradient(90deg,#4f8cff,#22d3ee); }
+
+/* Hover shadow for cards in dark */
+html.dark .card-hover:hover {
+  box-shadow: 0 14px 40px rgba(2,6,23,0.65);
+}
+
+/* Small transition to smooth theme change */
+html,
+body,
+button,
+input,
+textarea {
+  transition: background-color .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+
+
+
     </style>
+
+
+<!-- place this first inside <head> -->
+<script>
+  (function() {
+    // read stored preference
+    const stored = localStorage.getItem('darkMode'); // 'true'|'false' or null
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const useDark = stored === 'true' || (stored === null && prefersDark);
+    if (useDark) document.documentElement.classList.add('dark');
+    // ensure meta theme-color exists (helps mobile browser chrome)
+    if (!document.querySelector('meta[name="theme-color"]')) {
+      const m = document.createElement('meta');
+      m.name = 'theme-color';
+      document.head.appendChild(m);
+    }
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', useDark ? '#0b1220' : '#ffffff');
+  })();
+</script>
+
+
+
 </head>
 <body class="bg-gray-50 font-sans antialiased text-gray-800">
     <!-- Navigation -->
     <nav class="fixed w-full bg-white shadow-md z-50">
         <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-blue-600 dark:text-blue-400">E M</a>
+            <a href="#" class="text-2xl font-bold text-blue-600 dark:text-blue-400">ESSADIK MONSSIF</a>
             <div class="hidden md:flex items-center space-x-8">
                 <button id="dark-mode-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
                     <i class="fas fa-moon dark:hidden"></i>
@@ -1098,5 +1466,107 @@ Software Engineering</h3>
             }
         });
     </script>
+
+
+
+    <button id="chatbot-button" class="fixed bottom-8 right-20 bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg transition-all duration-300">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <!-- Chatbot Container -->
+    <div id="chatbot-container" class="fixed bottom-24 right-8 w-80 bg-white rounded-lg shadow-xl hidden flex flex-col border border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <div class="bg-green-500 text-white p-3 rounded-t-lg flex justify-between items-center">
+            <h3 class="font-semibold">Chat Assistant</h3>
+            <button id="close-chatbot" class="text-white hover:text-gray-200">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto max-h-80">
+            <div class="mb-4">
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-3 inline-block">
+                    <p>Hello! How can I help you today?</p>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 border-t border-gray-200 dark:border-gray-700">
+            <div class="flex">
+                <input type="text" id="chat-input" placeholder="Type your message..." class="flex-1 border border-gray-300 rounded-l-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                <button id="send-message" class="bg-green-500 text-white px-4 py-2 rounded-r-lg hover:bg-green-600 transition">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
+    
+        // Chatbot functionality
+        const chatbotButton = document.getElementById('chatbot-button');
+        const chatbotContainer = document.getElementById('chatbot-container');
+        const closeChatbot = document.getElementById('close-chatbot');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const sendMessageBtn = document.getElementById('send-message');
+
+        // Toggle chatbot visibility
+        chatbotButton.addEventListener('click', () => {
+            chatbotContainer.classList.toggle('hidden');
+        });
+
+        // Close chatbot
+        closeChatbot.addEventListener('click', () => {
+            chatbotContainer.classList.add('hidden');
+        });
+
+        // Send message functionality
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                // Add user message
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'mb-4 flex justify-end';
+                userMessageDiv.innerHTML = `
+                    <div class="bg-blue-500 text-white rounded-lg p-3 inline-block max-w-xs">
+                        <p>${message}</p>
+                    </div>
+                `;
+                chatMessages.appendChild(userMessageDiv);
+
+                // Clear input
+                chatInput.value = '';
+
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Simulate bot response after a short delay
+                setTimeout(() => {
+                    const botResponseDiv = document.createElement('div');
+                    botResponseDiv.className = 'mb-4';
+                    botResponseDiv.innerHTML = `
+                        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-3 inline-block max-w-xs">
+                            <p>Thanks for your message! I'm a simple demo chatbot. For real assistance, please contact me via email.</p>
+                        </div>
+                    `;
+                    chatMessages.appendChild(botResponseDiv);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        // Send message on button click
+        sendMessageBtn.addEventListener('click', sendMessage);
+
+        // Send message on Enter key
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+
+
+
 </body>
 </html>
